@@ -1,22 +1,33 @@
-<div class="header">
-    <h1 class="text-center text-danger">{{title()}}</h1>
-    <img width="300" height="300" class="d-block mx-auto mb-4" src="/photo.jpg" alt="Photo">
+<div class="header bg-success">
+    <img width="300" height="300" class="d-block mx-auto mt-4 rounded-pill" src="/photo.jpg" alt="Photo">
     <section class="container">
         <div class="row mt-5">
-            <div class="col-sm-10">
-            <input class="formControl w-100 h-100" placeholder="New Task">
+            <div class="col-sm-10 mb-5">
+                <input class="formControl w-100 h-100 mb-3" #val placeholder="New Task">
             </div>
-            <div class="col-sm-2">
-                <button class="btn btn-primary py-2 px-4">Add Task</button>
+            <div class="col-sm-2 ">
+                <button class="btn btn-primary py-2 px-3" (click)="addTask(val.value)">Add Task</button>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <ul class="list-group">
+                    @for (item of tasks(); track $index) {
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Task 1
-                        <span class="badge bg-primary rounded-pill">1</span>
+
+                        <div>
+                            <span class="badge bg-primary rounded-pill me-3">{{ $index + 1 }}</span>
+                            <strong>{{ item }}</strong>
+                        </div>
+
+                        <button class="btn btn-danger btn-sm" (click)="$event.stopPropagation(); deleteTask($index)">
+                            Delete
+                        </button>
+
                     </li>
+                    } @empty {
+                    <li class="list-group-item text-center bg-transparent text-warning">🌙👌☠️ مفيش مهام، كبر الجي وكيّف الدي يا برنس ☠️👌🌙</li>
+                    }
                 </ul>
             </div>
         </div>
