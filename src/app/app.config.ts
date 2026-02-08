@@ -12,8 +12,6 @@ export const appConfig: ApplicationConfig = {
             theme: {
                 preset: Aura,
                 options: {
-                // هنا اللعبة: لو مش عايز اللون يتغير مع السيستم
-                // حدد selector معين يتحكم في الـ Dark Mode
                 darkModeSelector: '.my-app-dark', 
                 cssLayer: {
                     name: 'primeng',
