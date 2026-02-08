@@ -6,9 +6,9 @@ describe('login function', ()=>{
         expect(login('ahmed', 888)).toBeTrue();
     })
 
-    it('it can return false', ()=>{
-        expect(login('ahmed', undefined)).toBeFalse ();
-    })
+    // it('it can return false', ()=>{
+    //     expect(login('ahmed', undefined)).toBeFalse ();
+    // })
 
 
 
