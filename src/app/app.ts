@@ -8,5 +8,17 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('ToDoList');
+protected tasks = signal<string[]>([]);
+
+addTask(task:string){
+  if(task.trim()){
+    this.tasks.update(tasks => [...tasks, task]);
+    console.log('Current List',this.tasks())
+  }
+}
+deleteTask(index: number) {
+  this.tasks.update(oldTasks => 
+    oldTasks.filter((_, i) => i !== index) 
+  );
+}
 }
