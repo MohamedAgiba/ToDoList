@@ -3,29 +3,39 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-to-do',
-  imports: [ FormsModule],
+  imports: [FormsModule],
   templateUrl: './to-do.html',
   styleUrl: './to-do.scss',
 })
 export class ToDo {
-  Title:string = "To Do List Application";
-  imageLink:string = "/photo.jpg";
+  Title: string = 'To Do List Application';
+  imageLink: string = '/photo.jpg';
 
   tasks: string[] = [];
   newTask: string = '';
-  isAvailable : boolean = false;
+  isAvailable: boolean = false;
 
-  addTask(){
-    if(this.newTask.trim() !== ""){
-      this.tasks.push(this.newTask); 
+  addTask() {
+    if (this.newTask.trim() !== '') {
+      this.tasks.push(this.newTask);
       this.newTask = '';
       this.isAvailable = true;
     }
     console.log(this.tasks);
   }
-  editTask(){
+  editTask(index: number, newTaskEdit: string): string | void {
+    const trimmedTask = newTaskEdit.trim();
+    if (newTaskEdit.trim() !== '') {
+      this.tasks[index] = newTaskEdit;
+    } else {
+      newTaskEdit = this.tasks[index];
+      return (this.newTask = newTaskEdit);
+    }
+    this.newTask = "";
   }
 
-  removeTask(){
+  removeTask(index: number) {
+    this.tasks.splice(index, 1);
+    this.isAvailable = this.tasks.length > 0;
   }
 }
