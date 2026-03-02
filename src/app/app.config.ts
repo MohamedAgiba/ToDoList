@@ -2,12 +2,10 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessC
 import { provideRouter } from '@angular/router';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
-
-
 import { routes } from './app.routes';
-
+import { provideHttpClient, withFetch } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
-  providers: [
+  providers: [ 
      providePrimeNG({
             theme: {
                 preset: Aura,
@@ -22,6 +20,7 @@ export const appConfig: ApplicationConfig = {
         }),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes)
+    provideRouter(routes),
+    provideHttpClient(withFetch()),
   ]
 };
