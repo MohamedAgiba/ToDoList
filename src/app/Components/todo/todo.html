@@ -1,1 +1,32 @@
-<p>todo works!</p>
+<section class="todo__page">
+  <div class="todo__container">
+    
+    <!-- Header -->
+    <h3 class="todo__header">
+      <i class="bi bi-list-task todo__header-icon"></i>Todo List
+    </h3>
+
+    <!-- Add Task Bar -->
+    <div class="todo__add-bar">
+      <input type="text" [(ngModel)]="newToDo.title" (keyup.enter)="addTodo()" class="todo__input" placeholder="Add new Task">
+      <i class="bi bi-calendar-event-fill todo__calendar-icon"></i>
+      <button (click)="addTodo()" class="btn btn-primary todo__add-btn">Add</button>
+    </div>
+
+    <!-- List Items -->
+    <ul class="todo__list">
+      @for (todo of todos; track todo.id) {
+        <li class="todo__item">
+          <div class="todo__item-content">
+            <input class="form-check-input todo__checkbox" type="checkbox" [checked]="todo.completed" (change)="toggleTodo(todo)">
+            <span class="todo__title" [style.text-decoration]="todo.completed ? 'line-through' : 'none'">{{ todo.title }}</span>
+          </div>
+          <button (click)="deleteTodo(todo.id)" class="btn todo__delete-btn">
+            <i class="bi bi-trash-fill todo__delete-icon"></i>
+          </button>
+        </li>
+      }
+    </ul>
+    
+  </div>
+</section>
