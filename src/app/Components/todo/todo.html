@@ -1,32 +1,22 @@
-<section class="todo-page min-vh-100 w-100 d-flex justify-content-center pt-5" style="background-color: #ffffff;">
-  <div class="todo-container p-4 shadow-sm h-100" style="max-width: 800px; width: 95%; background-color: #f1f5f9; border-radius: 10px; border: 1px solid #e1e5eb;">
-    
-    <!-- Header -->
-    <h3 class="text-center text-primary mb-4 mt-2 fw-bold" style="letter-spacing: 0.5px;">
-      <i class="bi bi-list-task me-2 text-primary" style="font-size: 1.8rem; vertical-align: middle;"></i>Todo List
-    </h3>
+<section class="todo">
+  <h1>Todo List</h1>
+  @for (todo of todos; track todo.id) {
+    <ul class="todo-list">
+    <li>
+      <span>Learn Angular</span>
+      <button>Details</button>  
+    </li>
 
-    <!-- Add Task Bar -->
-    <div class="bg-white rounded d-flex align-items-center p-2 mb-4 shadow-sm" style="border-radius: 8px !important; border: 1px solid #e2e8f0;">
-      <input type="text" class="form-control border-0 shadow-none text-secondary" placeholder="Add new Task" style="background: transparent;">
-      <i class="bi bi-calendar-event-fill text-dark mx-3" style="opacity: 0.65;"></i>
-      <button class="btn btn-primary px-4 shadow-none fw-medium" style="border-radius: 6px;">Add</button>
-    </div>
-
-    <!-- List Items -->
-    <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
-      @for (todo of todos; track todo.id) {
-        <li class="d-flex justify-content-between align-items-center bg-white px-3 py-3 rounded shadow-sm" style="border-radius: 8px !important; border: 1px solid #f8f9fa;">
-          <div class="d-flex align-items-center gap-3">
-            <input class="form-check-input mt-0 shadow-none custom-checkbox" type="checkbox" [checked]="todo.completed" style="width: 1.25rem; height: 1.25rem; border-color: #cbd5e1; cursor: pointer;">
-            <span class="text-secondary" style="font-size: 0.95rem; font-weight: 500;">{{ todo.title }}</span>
-          </div>
-          <button class="btn btn-link text-danger p-0 border-0 shadow-none" style="opacity: 0.85; transition: 0.2s;">
-            <i class="bi bi-trash-fill fs-5 trash-icon"></i>
-          </button>
-        </li>
-      }
-    </ul>
-    
+    <li>
+      <span>Build Todo App</span>
+      <button>Details</button>
+    </li>
+  </ul>
+  }
+  <div class="add-todo">
+    <input type="text" placeholder="Add new task">
+    <button>Add</button>
   </div>
+
+ 
 </section>
