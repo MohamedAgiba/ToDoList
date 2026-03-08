@@ -1,0 +1,30 @@
+.about {
+  padding: 60px 20px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  p {
+    max-width: 600px;
+    margin: auto;
+    color: #555;
+  }
+
+  .team {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    .member {
+      text-align: center;
+
+      img {
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

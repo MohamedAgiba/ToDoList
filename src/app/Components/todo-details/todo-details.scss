@@ -1,0 +1,25 @@
+.todo-details {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+
+  .card {
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f3f4f6;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 8px 15px;
+    }
+  }
+}
